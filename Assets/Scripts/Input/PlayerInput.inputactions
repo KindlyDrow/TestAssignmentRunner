@@ -1,0 +1,67 @@
+{
+    "name": "PlayerInput",
+    "maps": [
+        {
+            "name": "Move",
+            "id": "26f5fbc9-5f02-4a3a-ab13-9cc8dd42ca4d",
+            "actions": [
+                {
+                    "name": "GetAxis",
+                    "type": "Value",
+                    "id": "cb2f9a32-0110-488f-8849-1b32449c247e",
+                    "expectedControlType": "Axis",
+                    "processors": "AxisDeadzone",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "fb93b23c-0d6b-4c06-a4fc-151c615fb323",
+                    "path": "<Touchscreen>/position/x",
+                    "interactions": "Hold",
+                    "processors": "Clamp(min=-1,max=1)",
+                    "groups": "",
+                    "action": "GetAxis",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "f7d9686c-4a0c-42fe-8846-51010d43fd38",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GetAxis",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Modifier",
+                    "id": "07fd8cb5-dfb0-470f-91ac-11bc7bd4c875",
+                    "path": "<Pointer>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GetAxis",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Binding",
+                    "id": "100f71cb-953e-4456-9911-6a036d3eca9c",
+                    "path": "<Pointer>/delta/x",
+                    "interactions": "",
+                    "processors": "Clamp(min=-1,max=1)",
+                    "groups": "",
+                    "action": "GetAxis",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
