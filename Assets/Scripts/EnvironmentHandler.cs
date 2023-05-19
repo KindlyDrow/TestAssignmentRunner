@@ -9,7 +9,6 @@ public class EnvironmentHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("TRIGGER2");
         Environment environment = other.GetComponentInParent<Environment>();
         environment.Return();
         AddNewInvironment(other.transform.position);
@@ -23,8 +22,6 @@ public class EnvironmentHandler : MonoBehaviour
         newEnv = EnvironmentFuctory.Instance.GetEmptyEnviroment();
         newEnv.transform.SetParent(m_environment);
         newEnv.transform.position = new Vector3(m_environment.position.x, m_environment.position.y, trigerPos.z + m_environmentSize *  EnvCount);
-        Debug.Log(trigerPos.z);
         newEnv.SetActive(true);
-
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Environment : MonoBehaviour
 {
     private float m_speed;
+    private bool gameStarted;
 
     virtual public void Start()
     {
@@ -13,7 +14,10 @@ public class Environment : MonoBehaviour
 
     virtual public void FixedUpdate()
     {
-        transform.position += Vector3.back * m_speed * Time.deltaTime;
+        if (GameManager.Instance.CurrentState == GameManager.State.GameInProgress)
+        {
+            transform.position += Vector3.back * m_speed * Time.deltaTime;
+        }
     }
 
     public void Return()
