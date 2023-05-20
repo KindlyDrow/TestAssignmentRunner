@@ -148,13 +148,13 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
-    private void ChangeScore(float value)
+    public void ChangeScore(float value)
     {
         m_score += value;
         OnScoreChanged?.Invoke(m_score);
     }
 
-    private void ChangeTorchPower(float value)
+    public void ChangeTorchPower(float value)
     {
         m_currentTorchPower += value;
         if (m_currentTorchPower < 0f)

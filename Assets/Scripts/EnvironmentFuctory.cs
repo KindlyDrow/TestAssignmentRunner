@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnvironmentFuctory : MonoBehaviour
@@ -67,10 +64,28 @@ public class EnvironmentFuctory : MonoBehaviour
             }
         }
 
-        GameObject bullet = Instantiate(m_emptuEnvironmentPrefab);
-        bullet.SetActive(false);
-        m_emptyEnvironmentPool.Add(bullet);
-        return bullet;
+        GameObject enviroment = Instantiate(m_emptuEnvironmentPrefab);
+        enviroment.SetActive(false);
+        m_emptyEnvironmentPool.Add(enviroment);
+        return enviroment;
+    }
+
+    public GameObject GetRandomEnviroment()
+    {
+        int randomEnv = Random.Range(0, m_environmentPrefabs.Length);
+
+        for (int i = 0; i < m_environmentPools[randomEnv].Count; i++)
+        {
+            if (!m_environmentPools[randomEnv][i].activeSelf)
+            {
+                return m_environmentPools[randomEnv][i];
+            }
+        }
+
+        GameObject enviroment = Instantiate(m_environmentPrefabs[randomEnv]);
+        enviroment.SetActive(false);
+        m_environmentPools[randomEnv].Add(enviroment);
+        return enviroment;
     }
 
     public void ReturnEnviroment(GameObject enviromentToReturn)
